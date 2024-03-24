@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ai Dress Advisor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-upload.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+</head>
+
+<body>
+    <div class="anime">
+        <h1 id="animated-text">Ai Dress Advisor</h1>
+    </div>
+
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="#">Ai Dress Advisor</a>
+            </div>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="animate__animated animate__fadeInDown">Find Your Perfect Outfit</h1>
+                <p class="animate__animated animate__fadeInUp">Upload an image, and our AI assistant will provide
+                    personalized recommendations for the perfect dress or outfit.</p>
+            </div>
+        </section>
+        <section class="upload-container animate__animated animate__zoomIn">
+            <form method="post" action="/" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="gender">Select Gender:</label>
+                    <select name="gender" id="gender" onchange="handleGenderSelect()">
+                        <option value="none" selected disabled hidden>Choose Gender</option>
+                        <option value="boy">Boy</option>
+                        <option value="girl">Girl</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="occasion">Select Occasion:</label>
+                    <select name="occasion" id="occasion" onchange="handleOccasionSelect()">
+                        <option value="none" selected disabled hidden>Choose Occasion</option>
+                        <option value="casual">Casual</option>
+                        <option value="formal">Formal</option>
+                        <option value="party">Party</option>
+                        <option value="wedding">Wedding</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="drop-area" id="drop-area">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <input type="file" name="file" accept="image/*" id="file-input" class="file-input">
+                        <label for="file-input" class="file-label">
+                            <span>Choose Image</span> or Drag & Drop Here
+                        </label>
+                    </div>
+                    <div class="preview-container" id="preview-container">
+                        <h3>Preview:</h3>
+                        <img id="preview-image" alt="Preview Image">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <a href="./result.html">
+                        <input type="submit" value="Upload" class="upload-btn" id="upload-btn">
+
+                    </a>
+                </div>
+            </form>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2023 Ai Dress Advisor. All rights reserved.</p>
+    </footer>
+
+    <div class="toast" id="error-toast" onmouseover="pauseProgressBar()" onmouseout="resumeProgressBar()">
+        <span id="toast-message"></span>
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script-upload.js') }}"></script>
+    <script>
+        // Function to handle gender selection
+        function handleGenderSelect() {
+            const genderSelect = document.getElementById('gender');
+            const selectedGender = genderSelect.value;
+            sessionStorage.setItem('selectedGender', selectedGender); // Store selected gender in sessionStorage
+        }
+
+        // Function to handle occasion selection
+        function handleOccasionSelect() {
+            const occasionSelect = document.getElementById('occasion');
+            const selectedOccasion = occasionSelect.value;
+            sessionStorage.setItem('selectedOccasion', selectedOccasion); // Store selected occasion in sessionStorage
+        }
+
+        // Function to initialize selected gender and occasion if they exist in sessionStorage
+        function initializeSelectedOptions() {
+            const selectedGender = sessionStorage.getItem('selectedGender');
+            const selectedOccasion = sessionStorage.getItem('selectedOccasion');
+            console.log(selectedGender, selectedOccasion)
+            if (selectedGender) {
+                const genderSelect = document.getElementById('gender');
+                genderSelect.value = "none";
+            }
+            if (selectedOccasion) {
+                const occasionSelect = document.getElementById('occasion');
+                occasionSelect.value = "none";
+            }
+        }
+
+        // Function to reset selected options to default
+        function resetSelectedOptions() {
+            const genderSelect = document.getElementById('gender');
+            const occasionSelect = document.getElementById('occasion');
+            genderSelect.value = 'none';
+            occasionSelect.value = 'none';
+            sessionStorage.removeItem('selectedGender');
+            sessionStorage.removeItem('selectedOccasion');
+        }
+
+        // Call initializeSelectedOptions() when the page loads
+        window.onload = () => {
+            console.log("window load");
+            initializeSelectedOptions();
+
+            // Reset selected options when the page is reloaded (type 1) or when user navigates away and comes back (type 2)
+            (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
+
+            // setTimeout(() => {
+            //     const animeDiv = document.querySelector('.anime');
+            //     animeDiv.classList.add('animate-out');
+
+            //     const animatedText = document.querySelector('#animated-text');
+            //     animatedText.classList.add('fade-out');
+            // }, 1000); // Wait for at least 1 second (1000 milliseconds)
+        };
+    </script>
+
+</body>
+
+</html>

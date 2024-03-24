@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Color Analysis Result</title>
+    <link rel="stylesheet" href="../static/style-result.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div>
+                <img src="../static/img/download2.jpg" alt="logo">
+            </div>
+            <div>
+                <h1>Color Analysis Result</h1>
+            </div>
+        </div>
+    </header>
+
+    <div class="img-result">
+        <div class="container">
+            <div class="img-result-wrapper">
+                <div class="image-container">
+                    <h2>Original Image</h2>
+                    <img src="data:image/jpeg;base64,{{ image }}" alt="Original Image" width="250">
+                </div>
+
+                <div class="image-container">
+                    <h2>Skin Extracted Image</h2>
+                    <img src="data:image/jpeg;base64,{{ skin }}" alt="Skin Extracted Image" width="250">
+                </div>
+                <!-- Add a container for color bars and information -->
+                <div class="image-container">
+                    <div>
+                        <h2>Dominant Colors</h2>
+                    </div>
+                    <div class="color-wrapper">
+                        {% for colorInfo in dominantColors %}
+                            {% if loop.first %}
+                                <div class="color-container">
+                                    <!-- Display color bar -->
+                                    <div class="color-bar" style="background-color: rgb({{ colorInfo.color[0] }}, {{ colorInfo.color[1] }}, {{ colorInfo.color[2] }});"></div>
+                                    <!-- Display RGB values -->
+                                    <p class="color-info">RGB: {{ colorInfo.color[0] }}, {{ colorInfo.color[1] }}, {{ colorInfo.color[2] }}</p>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container advised-dress-container">
+        <div class="advised-dress">
+            <div>
+                <h1>Advised dresses</h1>
+            </div>
+            <div>
+                <!-- Advised image content -->
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        // Embed dominant colors data as a JavaScript variable
+        var dominantColorsData = {{ dominantColors | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='script-result.js') }}"></script>
+</body>
+
+</html>

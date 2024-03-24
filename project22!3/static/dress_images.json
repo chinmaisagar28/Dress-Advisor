@@ -1,0 +1,331 @@
+{
+  "fair_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "light_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "medium_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "olive_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "tan_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZh3SPQbbR-FkWAFttBlCsUl0YikjSI_5GFDoOazwBBP2fF6qH7parBhSHHH13I8cgkUk&usqp=CAU",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg"
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "brown_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  },
+  "deep_skin": {
+    "boys": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "girls": {
+      "casual": [
+        "",
+        "",
+        ""
+      ],
+      "formal": [
+        "",
+        "",
+        ""
+      ],
+      "party": [
+        "",
+        "",
+        ""
+      ],
+      "wedding": [
+        "",
+        "",
+        ""
+      ]
+    }
+  }
+}

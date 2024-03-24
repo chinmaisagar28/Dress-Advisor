@@ -1,0 +1,184 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+    padding: 0%;
+}
+
+body {
+    background-color: #f7f7f7;
+}
+
+/* All section styles start */
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+h1,
+h2 {
+    /* text-align: center; */
+    color: #333;
+}
+
+header,
+.img-result-wrapper {
+    margin-bottom: 20px;
+}
+
+/* All section styles end */
+
+/* header Starts */
+header{
+    background: #86f1ff;
+}
+header>div>div:first-child img{
+    width: 50px;
+    height: 50px;
+}
+
+header>div{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+/* header Ends */
+
+/* Image input result starts */
+.img-result-wrapper {
+    text-align: center;
+    display: flex;
+    justify-content: space-evenly;
+    /* align-items: 20px; */
+}
+
+.image-container,
+.color-container {
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.image-container img {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border-radius: 8px;
+}
+
+.color-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-basis: 100%;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    text-align: center;
+}
+
+.color-bar {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.color-info {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Image input result End */
+
+/* Advised Dress Section Start */
+
+.advised-dress{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.advised-dress div:last-child{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.advised-dress img {
+    width: 200px;
+    height: auto;
+    margin: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.advised-dress img:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+.advised-dress img:nth-child(n){
+    border: 2px solid var(--color-primary);
+}
+
+.advised-dress img:nth-child(2n){
+    --color-primary: #36a2eb;
+}
+
+.advised-dress img:nth-child(2n+1){
+    --color-primary: #ff6384;
+}
+
+.advised-dress img:nth-child(2n+3){
+    --color-primary: #68ff63;
+}
+
+.advised-dress-container {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ececec;
+    border-radius: 15px;
+}
+
+.advised-dress img::after {
+    content: '';
+    /* position: absolute;
+    top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.advised-dress img:hover::after {
+    opacity: 1;
+}
+
+.advised-dress img::before {
+    content: 'Click to Zoom';
+    /* position: absolute;
+    bottom: 10px;
+    left: 50%; */
+    transform: translateX(-50%);
+    font-size: 12px;
+    color: #333;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.advised-dress img:hover::before {
+    opacity: 1;
+}
+
+
+/* Advised Dress Section End */
