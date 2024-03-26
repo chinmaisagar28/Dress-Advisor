@@ -140,9 +140,9 @@
   "olive_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg",
+        "static\\img\\download.jpg"
       ],
       "formal": [
         "",

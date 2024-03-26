@@ -22,6 +22,10 @@ body {
     animation: fadeInOut 2s ease-in-out forwards;
 }
 
+.anime.nav{
+    animation: fadeInOut 0.8s ease-in-out forwards;
+}
+
 @keyframes fadeInOut {
     0% {
         opacity: 1;

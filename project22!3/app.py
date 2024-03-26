@@ -1,14 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for, session
 import numpy as np
 import cv2
 from sklearn.cluster import KMeans
 from collections import Counter
-# import imutils
+import imutils
 import pprint
 import base64
+from flask_session import Session
+
 
 # app = Flask(__name__)
 app = Flask(__name__, static_folder='static')
+app.secret_key = '847b3d461d046d54bdf129bff2054368f292ec1347b9a5e7'
+
+# Increase the maximum cookie size limit in Flask application configuration
+app.config['MAX_COOKIE_SIZE'] = 8192   # Set to a higher value as needed
+app.config['SESSION_TYPE'] = 'filesystem'  # Store session data on the server-side
+app.config['SESSION_FILE_DIR'] = 'static/session-storage'  # Directory to store session files
+app.config['SESSION_COOKIE_HTTPONLY'] = True  # Ensure session cookie is HTTP only
+
+Session(app)
 
 # Load the pre-trained face detector
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
@@ -133,7 +144,7 @@ def extractDominantColor(image, number_of_colors=2, hasThresholding=False):
     img = img.reshape((img.shape[0]*img.shape[1]), 3)
 
     # Initiate KMeans Object
-    estimator = KMeans(n_clusters=number_of_colors, random_state=0)
+    estimator = KMeans(n_clusters=number_of_colors, random_state=0, n_init=10)
 
     # Fit the image
     estimator.fit(img)
@@ -158,6 +169,9 @@ def pretty_print_data(color_info):
         print(pprint.pformat(x))
         print()
 
+# @app.route('/', methods=['GET'])
+# def home():
+#     return render_template('upload.html')
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
@@ -169,29 +183,34 @@ def index():
             # Check file size
             max_file_size = 2 * 1024 * 1024  # 2MB
             if image_file and image_file.content_length > max_file_size:
-                return render_template('error.html', error_message='File size exceeds the maximum limit of 2MB.')
-                
+                session['error_message'] = 'File size exceeds the maximum limit of 2MB.'
+                return redirect(url_for('error'))
+            
             # Read the image file
             image_data = image_file.read()
             if not image_data:
-                return render_template('error.html', error_message='Unable to read the image file.')
+                session['error_message'] = 'Unable to read the image file.'
+                return redirect(url_for('error'))
             
             # Decode image data
             image = cv2.imdecode(np.frombuffer(image_data, np.uint8), cv2.IMREAD_COLOR)
             if image is None:
-                return render_template('error.html', error_message='Unable to decode the image file. Please try with different File format!')
-                
+                session['error_message'] = 'Unable to decode the image file. Please try with different File format!'
+                return redirect(url_for('error'))
+
             # Resize image to a width of 250
-            # image = imutils.resize(image, width=550)
+            image = imutils.resize(image, width=550)
 
             # Detect faces in the uploaded image
             faces = detect_faces(image)
 
             # If no faces detected or multiple faces detected, render error message 
             if len(faces) == 0:
-                return render_template('error.html', error_message='No faces detected in the uploaded image.')
+                session['error_message'] = 'No faces detected in the uploaded image.'
+                return redirect(url_for('error'))
             elif len(faces) >= 2:
-                return render_template('error.html', error_message='Multiple Faces Detected')
+                session['error_message'] = 'Multiple Faces Detected'
+                return redirect(url_for('error'))
 
             # Draw rectangles around detected faces
             # draw_faces(image, faces)
@@ -215,16 +234,48 @@ def index():
                 _, image_encoded = cv2.imencode('.jpg', image)
                 image_base64 = base64.b64encode(image_encoded).decode('utf-8')
 
-                # Render the results in HTML template along with the original image
-                return render_template('result.html', image=image_base64, skin=skin_base64, dominantColors=dominantColors)
+                # Store image and other data in session for rendering result template
+                session['image_base64'] = image_base64
+                session['skin_base64'] = skin_base64
+                session['dominant_colors'] = dominantColors
+
+                # Redirect to the result page
+                return redirect(url_for('result'))
         except Exception as e:
             # Handle exceptions
-            error_message = f"An error occurred: {str(e)}. Please try again with a different image file."
-            return render_template('error.html', error_message=error_message)
+            session['error_message'] = f"An error occurred: {str(e)}. Please try again with a different image file."
+            return redirect(url_for('error'))
     
     # Render the upload form in HTML template
     return render_template('upload.html')
 
+@app.route('/error')
+def error():
+    error_message = session.pop('error_message', None)
+    if error_message:
+        return render_template('error.html', error_message=error_message)
+    else:
+        return redirect(url_for('home'))
+
+@app.route('/result')
+def result():
+    image_base64 = session.pop('image_base64', None)
+    skin_base64 = session.pop('skin_base64', None)
+    dominant_colors = session.pop('dominant_colors', None)
+
+    if image_base64 and skin_base64 and dominant_colors:
+        return render_template('result.html', image=image_base64, skin=skin_base64, dominantColors=dominant_colors)
+    else:
+        session['error_message'] = 'An error occurred while processing image. Please try again.'
+        return redirect(url_for('error'))
+    
+@app.route('/navPages/about')
+def about():
+    return render_template('navPages/about.html')
+
+@app.route('/navPages/contact')
+def contact():
+    return render_template('navPages/contact.html')
+    
 if __name__ == '__main__':
     app.run(debug=True)
-
