@@ -35,6 +35,12 @@ body {
     }
 }
 
+.canva{
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
 #animated-text {
     color: white;
     opacity: 0;
