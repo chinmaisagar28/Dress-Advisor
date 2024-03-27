@@ -29,11 +29,18 @@
     </header>
     <main>
         <section class="hero">
-            <div class="hero-content" id="canvasContainer">
-                <canvas id="canvas" class="canva"></canvas>
-                <h1 class="animate__animated animate__fadeInDown">Find Your Perfect Outfit</h1>
-                <p class="animate__animated animate__fadeInUp">Upload an image, and our AI assistant will provide
-                    personalized recommendations for the perfect dress or outfit.</p>
+            <div class="hero-bubbble-wrapper">
+                <div class="canva" id="canvasContainer">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <div class="hero-content">
+                    <h1 class="animate__animated animate__fadeInDown">Find Your Perfect Outfit</h1>
+                    <p class="animate__animated animate__fadeInUp">Upload an image, and our AI assistant will provide
+                        personalized recommendations for the perfect dress or outfit.</p>
+                </div>
+                <!-- <a href="#gender" class="get-start">
+                        <button>Get Started Now!</button>
+                    </a> -->
             </div>
         </section>
         <section class="upload-container animate__animated animate__zoomIn">
@@ -137,6 +144,12 @@
             (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
 
         };
+        document.addEventListener("mousemove", function (event) {
+            mousex = event.clientX - canvasContainer.getBoundingClientRect().left;
+            mousey = event.clientY - canvasContainer.getBoundingClientRect().top;
+            console.log(mousex)
+            console.log(mousey)
+        });
     </script>
 
     <script>
@@ -145,34 +158,34 @@
         var c = canvas.getContext("2d");
 
         // Set canvas dimensions to match the dimensions of the container div
-        canvas.width = canvasContainer.offsetWidth;
+        a = canvas.width = canvasContainer.offsetWidth;
         canvas.height = canvasContainer.offsetHeight;
-
         // Initialize mouse coordinates
         var mousex = 0;
         var mousey = 0;
 
         // Update mouse coordinates on mousemove event
         canvasContainer.addEventListener("mousemove", function (event) {
-            mousex = event.clientX - canvasContainer.getBoundingClientRect().left;
-            mousey = event.clientY - canvasContainer.getBoundingClientRect().top;
+            var rect = canvas.getBoundingClientRect();
+            mousex = event.clientX - rect.left;
+            mousey = event.clientY - rect.top;
         });
 
         // Function to generate random color
         function randomColor() {
-            return (
-                "rgba(" +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.ceil(Math.random() * 10) / 10 +
-                ")"
-            );
+            // Generate random RGB values in the range of 0 to 255
+            var r = Math.round(Math.random() * 255);
+            var g = Math.round(Math.random() * 255);
+            var b = Math.round(Math.random() * 255);
+
+            // Increase the alpha channel range for more vibrant colors
+            var alpha = (Math.random() * 0.7) + 0.3; // Range: 0.3 to 1.0
+
+            // Construct the RGBA color string
+            return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
         }
 
+        a
         // Define Ball constructor function
         function Ball() {
             this.color = randomColor();
@@ -180,7 +193,7 @@
             this.x = Math.random() * (canvas.width - this.radius * 2) + this.radius;
             this.y = Math.random() * (canvas.height - this.radius);
             this.dy = Math.random() * 2;
-            this.dx = Math.round((Math.random() - 0.5) * 10);
+            this.dx = (Math.random() - 0.5) * 10; // Adjusted to have both positive and negative values
             this.vel = Math.random() / 5;
 
             // Method to draw the ball on canvas
@@ -207,8 +220,8 @@
                 ball.x += ball.dx;
 
                 // Ball collision with canvas boundaries
-                if (ball.y + ball.radius >= canvas.height) {
-                    ball.dy = -ball.dy * 2; // Apply gravity
+                if (ball.y + ball.radius >= canvas.height || ball.y - ball.radius <= 0) {
+                    ball.dy = -ball.dy * 1.1; // Apply gravity
                 } else {
                     ball.dy += ball.vel;
                 }
@@ -236,14 +249,15 @@
 
         // Start animation
         animate();
+        balls.push(new Ball());
 
         // Add new ball every 400 milliseconds and remove the oldest ball
         setInterval(function () {
             balls.push(new Ball());
-            if (balls.length > 13) {
+            if (balls.length > 3) {
                 balls.shift();
             }
-        }, 400);
+        }, 4000);
 
     </script>
 

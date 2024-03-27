@@ -169,10 +169,6 @@ def pretty_print_data(color_info):
         print(pprint.pformat(x))
         print()
 
-# @app.route('/', methods=['GET'])
-# def home():
-#     return render_template('upload.html')
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -249,15 +245,17 @@ def index():
     # Render the upload form in HTML template
     return render_template('upload.html')
 
-@app.route('/error')
+@app.route('/error', methods=['GET', 'POST'])
 def error():
-    error_message = session.pop('error_message', None)
-    if error_message:
-        return render_template('error.html', error_message=error_message)
-    else:
-        return redirect(url_for('home'))
+    if request.method == 'GET':
+        try:
+            error_message = session.pop('error_message', None)
+            if error_message:
+                return render_template('error.html', error_message=error_message)
+        except Exception:
+                return redirect(url_for('/'))
 
-@app.route('/result')
+@app.route('/result', methods=['GET', 'POST'])
 def result():
     image_base64 = session.pop('image_base64', None)
     skin_base64 = session.pop('skin_base64', None)

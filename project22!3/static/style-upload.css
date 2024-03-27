@@ -5,6 +5,22 @@ body {
     padding: 0;
     background-color: #f5f5f5;
     color: #333;
+    scroll-behavior: smooth;
+    box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+    width: 12px;
+}
+body::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 6px;
+}
+body::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
 
 .anime {
@@ -24,6 +40,7 @@ body {
 
 .anime.nav{
     animation: fadeInOut 0.8s ease-in-out forwards;
+    background-color: transparent;
 }
 
 @keyframes fadeInOut {
@@ -43,6 +60,9 @@ body {
     position: absolute;
     top: 0%;
     left: 0%;
+    width: 100%;
+    height: 89%;
+    margin: 0px auto;
 }
 
 #animated-text {
@@ -128,12 +148,35 @@ nav ul li a:hover {
 }
 
 .hero-content {
-    position: relative;
+    /* position: relative; */
     z-index: 1;
     color: #fff;
     text-align: center;
     padding: 100px 20px;
 }
+
+/* Get Start Btn */
+.get-start {
+    display: inline-block; /* Display as inline block */
+    text-decoration: none; /* Remove underline from link */
+    position: relative;
+    
+}
+
+.get-start button {
+    padding: 10px 20px; /* Padding for button */
+    background-color: #4CAF50; /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Rounded corners */
+    cursor: pointer; /* Cursor style */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.get-start button:hover {
+    background-color: #45a049; /* Darker background color on hover */
+}
+
 
 /* Animation styles of hero content*/
 .animate__animated.animate__fadeInDown {
