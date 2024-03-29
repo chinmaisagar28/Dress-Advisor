@@ -144,14 +144,15 @@
         // Call initializeSelectedOptions() when the page loads
         window.onload = () => {
             console.log("window load");
-            // initializeSelectedOptions();
+            initializeSelectedOptions();
 
             // Reset selected options when the page is reloaded (type 1) or when user navigates away and comes back (type 2)
-            // (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
+            (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
 
         };
     </script>
 
+    <!-- Script for ball animation in container -->
     <script>
         var canvasContainer = document.getElementById("canvasContainer");
         var canvas = document.getElementById("canvas");
