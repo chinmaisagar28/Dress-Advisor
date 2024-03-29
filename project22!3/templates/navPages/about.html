@@ -8,6 +8,7 @@
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-upload.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-about.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
 </head>
 
@@ -27,225 +28,43 @@
             </ul>
         </nav>
     </header>
+
     <main>
-        <section class="hero">
-            <div class="hero-content" id="canvasContainer">
-                <canvas id="canvas" class="canva"></canvas>
-                <h1 class="animate__animated animate__fadeInDown">Find Your Perfect Outfit</h1>
-                <p class="animate__animated animate__fadeInUp">Upload an image, and our AI assistant will provide
-                    personalized recommendations for the perfect dress or outfit.</p>
+        <section class="instructions">
+            <div class="container">
+                <h2>Getting Started</h2>
+                <p>Welcome to Ai Dress Advisor! Follow these steps to use our application:</p>
+                <ol>
+                    <li>Choose the gender for which you want to find outfit recommendations.</li>
+                    <li>Select the occasion for which you need outfit suggestions.</li>
+                    <li>Upload an image of yourself or the person you're seeking advice for.</li>
+                    <li>Click on the "Upload" button to submit the image for analysis.</li>
+                    <li>View the color analysis results and advised dresses.</li>
+                </ol>
             </div>
         </section>
-        <section class="upload-container animate__animated animate__zoomIn">
-            <form method="post" action="/" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="gender">Select Gender:</label>
-                    <select name="gender" id="gender" onchange="handleGenderSelect()">
-                        <option value="none" selected disabled hidden>Choose Gender</option>
-                        <option value="boy">Boy</option>
-                        <option value="girl">Girl</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="occasion">Select Occasion:</label>
-                    <select name="occasion" id="occasion" onchange="handleOccasionSelect()">
-                        <option value="none" selected disabled hidden>Choose Occasion</option>
-                        <option value="casual">Casual</option>
-                        <option value="formal">Formal</option>
-                        <option value="party">Party</option>
-                        <option value="wedding">Wedding</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <div class="drop-area" id="drop-area">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <input type="file" name="file" accept="image/*" id="file-input" class="file-input">
-                        <label for="file-input" class="file-label">
-                            <span>Choose Image</span> or Drag & Drop Here
-                        </label>
+        <section class="sample-images">
+            <div class="container">
+                <h2>Sample Images</h2>
+                <div class="image-grid">
+                    <div class="image-item">
+                        <img src="{{ url_for('static', filename='img/person1.jpg') }}" alt="Sample Image 1">
                     </div>
-                    <div class="preview-container" id="preview-container">
-                        <h3>Preview:</h3>
-                        <img id="preview-image" alt="Preview Image">
+                    <div class="image-item">
+                        <img src="{{ url_for('static', filename='img/person2.jpg') }}" alt="Sample Image 2">
                     </div>
+                    <!-- Add more sample images as needed -->
                 </div>
-                <div class="form-group">
-                    <a href="./result.html">
-                        <input type="submit" value="Upload" class="upload-btn" id="upload-btn">
-
-                    </a>
-                </div>
-            </form>
+            </div>
+        </section>
+        <section class="try-now">
+            <div class="container">
+                <h2>Ready to Try?</h2>
+                <p>Upload your own image now to get personalized outfit recommendations!</p>
+                <a href="/" class="upload-button">Upload Image</a>
+            </div>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2023 Ai Dress Advisor. All rights reserved.</p>
-    </footer>
-
-    <div class="toast" id="error-toast" onmouseover="pauseProgressBar()" onmouseout="resumeProgressBar()">
-        <span id="toast-message"></span>
-        <div class="progress-bar" id="progress-bar"></div>
-    </div>
-
-    <script src="{{ url_for('static', filename='script-upload.js') }}"></script>
-    <script>
-        // Function to handle gender selection
-        function handleGenderSelect() {
-            const genderSelect = document.getElementById('gender');
-            const selectedGender = genderSelect.value;
-            sessionStorage.setItem('selectedGender', selectedGender); // Store selected gender in sessionStorage
-        }
-
-        // Function to handle occasion selection
-        function handleOccasionSelect() {
-            const occasionSelect = document.getElementById('occasion');
-            const selectedOccasion = occasionSelect.value;
-            sessionStorage.setItem('selectedOccasion', selectedOccasion); // Store selected occasion in sessionStorage
-        }
-
-        // Function to initialize selected gender and occasion if they exist in sessionStorage
-        function initializeSelectedOptions() {
-            const selectedGender = sessionStorage.getItem('selectedGender');
-            const selectedOccasion = sessionStorage.getItem('selectedOccasion');
-            console.log(selectedGender, selectedOccasion)
-            if (selectedGender) {
-                const genderSelect = document.getElementById('gender');
-                genderSelect.value = "none";
-            }
-            if (selectedOccasion) {
-                const occasionSelect = document.getElementById('occasion');
-                occasionSelect.value = "none";
-            }
-        }
-
-        // Function to reset selected options to default
-        function resetSelectedOptions() {
-            const genderSelect = document.getElementById('gender');
-            const occasionSelect = document.getElementById('occasion');
-            genderSelect.value = 'none';
-            occasionSelect.value = 'none';
-            sessionStorage.removeItem('selectedGender');
-            sessionStorage.removeItem('selectedOccasion');
-        }
-
-        // Call initializeSelectedOptions() when the page loads
-        window.onload = () => {
-            console.log("window load");
-            initializeSelectedOptions();
-
-            // Reset selected options when the page is reloaded (type 1) or when user navigates away and comes back (type 2)
-            (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
-
-        };
-    </script>
-
-    <script>
-        var canvasContainer = document.getElementById("canvasContainer");
-        var canvas = document.getElementById("canvas");
-        var c = canvas.getContext("2d");
-
-        // Set canvas dimensions to match the dimensions of the container div
-        canvas.width = canvasContainer.offsetWidth;
-        canvas.height = canvasContainer.offsetHeight;
-
-        // Initialize mouse coordinates
-        var mousex = 0;
-        var mousey = 0;
-
-        // Update mouse coordinates on mousemove event
-        canvasContainer.addEventListener("mousemove", function (event) {
-            mousex = event.clientX - canvasContainer.getBoundingClientRect().left;
-            mousey = event.clientY - canvasContainer.getBoundingClientRect().top;
-        });
-
-        // Function to generate random color
-        function randomColor() {
-            return (
-                "rgba(" +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.round(Math.random() * 250) +
-                "," +
-                Math.ceil(Math.random() * 10) / 10 +
-                ")"
-            );
-        }
-
-        // Define Ball constructor function
-        function Ball() {
-            this.color = randomColor();
-            this.radius = Math.random() * 20 + 14;
-            this.x = Math.random() * (canvas.width - this.radius * 2) + this.radius;
-            this.y = Math.random() * (canvas.height - this.radius);
-            this.dy = Math.random() * 2;
-            this.dx = Math.round((Math.random() - 0.5) * 10);
-            this.vel = Math.random() / 5;
-
-            // Method to draw the ball on canvas
-            this.draw = function () {
-                c.beginPath();
-                c.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
-                c.fillStyle = this.color;
-                c.fill();
-            };
-        }
-
-        // Array to store ball objects
-        var balls = [];
-
-        // Function to animate the canvas
-        function animate() {
-            requestAnimationFrame(animate);
-            c.clearRect(0, 0, canvas.width, canvas.height);
-
-            // Update and draw each ball
-            balls.forEach(function (ball) {
-                ball.draw();
-                ball.y += ball.dy;
-                ball.x += ball.dx;
-
-                // Ball collision with canvas boundaries
-                if (ball.y + ball.radius >= canvas.height) {
-                    ball.dy = -ball.dy * 2; // Apply gravity
-                } else {
-                    ball.dy += ball.vel;
-                }
-
-                if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
-                    ball.dx = -ball.dx;
-                }
-
-                // Ball interaction with mouse
-                if (
-                    mousex > ball.x - 20 &&
-                    mousex < ball.x + 20 &&
-                    mousey > ball.y - 50 &&
-                    mousey < ball.y + 50 &&
-                    ball.radius < 70
-                ) {
-                    ball.radius += 5;
-                } else {
-                    if (ball.radius > 14) {
-                        ball.radius -= 5;
-                    }
-                }
-            });
-        }
-
-        // Start animation
-        animate();
-
-        // Add new ball every 400 milliseconds and remove the oldest ball
-        setInterval(function () {
-            balls.push(new Ball());
-            if (balls.length > 13) {
-                balls.shift();
-            }
-        }, 400);
-
-    </script>
 
 </body>
 

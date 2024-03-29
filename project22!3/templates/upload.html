@@ -9,6 +9,11 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-upload.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <!-- font import from Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Reddit+Mono:wght@200..900&family=Rubik+Scribble&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -22,8 +27,8 @@
                 <a href="#">Ai Dress Advisor</a>
             </div>
             <ul>
-                <li><a href="{{ url_for('about') }}">About Us</a></li>
                 <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li><a href="{{ url_for('about') }}">How to Use</a></li>
             </ul>
         </nav>
     </header>
@@ -38,10 +43,8 @@
                     <p class="animate__animated animate__fadeInUp">Upload an image, and our AI assistant will provide
                         personalized recommendations for the perfect dress or outfit.</p>
                 </div>
-                <!-- <a href="#gender" class="get-start">
-                        <button>Get Started Now!</button>
-                    </a> -->
             </div>
+
         </section>
         <section class="upload-container animate__animated animate__zoomIn">
             <form method="post" action="/" enctype="multipart/form-data">
@@ -144,12 +147,6 @@
             (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
 
         };
-        document.addEventListener("mousemove", function (event) {
-            mousex = event.clientX - canvasContainer.getBoundingClientRect().left;
-            mousey = event.clientY - canvasContainer.getBoundingClientRect().top;
-            console.log(mousex)
-            console.log(mousey)
-        });
     </script>
 
     <script>
@@ -185,7 +182,6 @@
             return "rgba(" + r + "," + g + "," + b + "," + alpha + ")";
         }
 
-        a
         // Define Ball constructor function
         function Ball() {
             this.color = randomColor();
@@ -220,10 +216,11 @@
                 ball.x += ball.dx;
 
                 // Ball collision with canvas boundaries
+                // || ball.y - ball.radius <= 0 is top boundary
                 if (ball.y + ball.radius >= canvas.height || ball.y - ball.radius <= 0) {
-                    ball.dy = -ball.dy * 1.1; // Apply gravity
+                    ball.dy = -ball.dy * 1.9; // Apply gravity
                 } else {
-                    ball.dy += ball.vel;
+                    // ball.dy += ball.vel;
                 }
 
                 if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
@@ -249,15 +246,16 @@
 
         // Start animation
         animate();
-        balls.push(new Ball());
 
         // Add new ball every 400 milliseconds and remove the oldest ball
         setInterval(function () {
             balls.push(new Ball());
-            if (balls.length > 3) {
+            if (balls.length > 9) {
                 balls.shift();
             }
-        }, 4000);
+        }, 400);
+
+
 
     </script>
 

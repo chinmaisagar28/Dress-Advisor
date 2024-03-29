@@ -1,9 +1,11 @@
 /* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;    margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background-color: #e9e8e8;
     color: #333;
     scroll-behavior: smooth;
     box-sizing: border-box;
@@ -93,12 +95,18 @@ header {
     background-color: #333;
     color: #fff;
     padding: 20px;
+    position: relative;
+}
+
+header>nav>div, ul>li{
+    z-index: 11;
 }
 
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 11;
 }
 
 .logo a {
