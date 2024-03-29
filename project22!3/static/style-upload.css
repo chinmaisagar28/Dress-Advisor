@@ -199,8 +199,19 @@ nav ul li a:hover {
     --animate-duration: 0.2s;
 }
 
-
 /* Upload Container Styles */
+
+.gender-occasion-wrapper{
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.gender-occasion-wrapper>div{
+    width: 45%;
+}
+
 .upload-container {
     max-width: 600px;
     margin: 50px auto;
@@ -228,6 +239,11 @@ select {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+option {
+    font-size: medium; /* Adjust the font size as needed */
+    font-weight: 500;
 }
 
 .file-label {

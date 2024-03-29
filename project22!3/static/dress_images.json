@@ -2,329 +2,327 @@
   "fair_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "light_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "medium_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 1"},
+        {"image": "static\\img\\person1.jpg", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "olive_skin": {
     "boys": {
       "casual": [
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg"
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "tan_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTZh3SPQbbR-FkWAFttBlCsUl0YikjSI_5GFDoOazwBBP2fF6qH7parBhSHHH13I8cgkUk&usqp=CAU",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg",
-        "static\\img\\download.jpg"
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "brown_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   },
   "deep_skin": {
     "boys": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     },
     "girls": {
       "casual": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "formal": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "party": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ],
       "wedding": [
-        "",
-        "",
-        ""
+        {"image": "", "description": "Description for Image 1"},
+        {"image": "", "description": "Description for Image 2"},
+        {"image": "", "description": "Description for Image 3"}
       ]
     }
   }

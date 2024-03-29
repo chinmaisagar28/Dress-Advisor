@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
         integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-ui/4.12.4/index.js">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style-upload.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <!-- font import from Google Fonts -->
@@ -48,23 +49,25 @@
         </section>
         <section class="upload-container animate__animated animate__zoomIn">
             <form method="post" action="/" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="gender">Select Gender:</label>
-                    <select name="gender" id="gender" onchange="handleGenderSelect()">
-                        <option value="none" selected disabled hidden>Choose Gender</option>
-                        <option value="boy">Boy</option>
-                        <option value="girl">Girl</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="occasion">Select Occasion:</label>
-                    <select name="occasion" id="occasion" onchange="handleOccasionSelect()">
-                        <option value="none" selected disabled hidden>Choose Occasion</option>
-                        <option value="casual">Casual</option>
-                        <option value="formal">Formal</option>
-                        <option value="party">Party</option>
-                        <option value="wedding">Wedding</option>
-                    </select>
+                <div class="gender-occasion-wrapper">
+                    <div class="form-group">
+                        <label for="gender">Select Gender:</label>
+                        <select name="gender" id="gender" onchange="handleGenderSelect()">
+                            <option value="none" selected disabled hidden>Choose Gender</option>
+                            <option value="boys">Boy</option>
+                            <option value="girls" disabled hidden>Girl</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="occasion">Select Occasion:</label>
+                        <select name="occasion" id="occasion" onchange="handleOccasionSelect()">
+                            <option value="none" selected disabled hidden>Choose Occasion</option>
+                            <option value="casual">Casual</option>
+                            <option value="formal">Formal</option>
+                            <option value="party"  disabled hidden>Party</option>
+                            <option value="wedding"  disabled hidden>Wedding</option>
+                        </select>
+                    </div>
                 </div>
                 <div class="form-group">
                     <div class="drop-area" id="drop-area">
@@ -141,10 +144,10 @@
         // Call initializeSelectedOptions() when the page loads
         window.onload = () => {
             console.log("window load");
-            initializeSelectedOptions();
+            // initializeSelectedOptions();
 
             // Reset selected options when the page is reloaded (type 1) or when user navigates away and comes back (type 2)
-            (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
+            // (performance.navigation.type === 1 || performance.navigation.type === 2) && resetSelectedOptions();
 
         };
     </script>
@@ -254,9 +257,6 @@
                 balls.shift();
             }
         }, 400);
-
-
-
     </script>
 
 </body>

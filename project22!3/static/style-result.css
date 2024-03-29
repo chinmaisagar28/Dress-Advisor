@@ -107,7 +107,6 @@ header>div{
     display: flex;
     flex-wrap: wrap;
     gap: 4px;
-    justify-content: space-between;
     align-items: center;
 }
 
@@ -118,6 +117,30 @@ header>div{
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
+}
+
+.advised-images-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.advised-image {
+    width: 49%;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.advised-image img {
+    width: 40%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.advised-image p {
+    text-align: center;
 }
 
 .advised-dress img:hover {
@@ -183,3 +206,66 @@ header>div{
 
 
 /* Advised Dress Section End */
+
+/* Footer Navigation bar */
+footer
+{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 20vh;
+    width: 75%;
+    margin: auto;
+    margin-top: 100px;
+    opacity: 0.2;
+    border-top: 1px solid #212121;
+}
+
+footer:hover
+{
+    animation: fade 0.3s ease;
+    opacity: 0.9;
+}
+
+.social-media-img
+{
+    height: 6vh;
+    background: #571818;
+    border-radius: 15px;
+}
+
+.codecell-img
+{
+    height: 10vh;
+}
+
+@keyframes fade
+{
+    0%
+    {
+        opacity: 0.2;
+    }
+
+    100%
+    {
+        opacity: 0.9;
+    }
+}
+
+/* Media queries */
+
+@media screen and (max-width: 1295px)
+{
+    footer
+    {
+        width: 95%;
+    }
+}
+
+@media screen and (max-width: 500px)
+{
+    footer
+    {
+        opacity: 0.9;
+    }
+}

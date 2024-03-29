@@ -56,19 +56,16 @@ function recommendDressImageFromRGB(rgbValues) {
 }
 
 // Fetch dress images based on skin tone and gender from external JSON file
-async function fetchDressImages(skinTone, gender, Occasion) {
+// Fetch dress images based on skin tone, gender, and occasion
+async function fetchDressImagesWithDescriptions(skinTone, gender, occasion) {
     try {
         const response = await fetch('static/dress_images.json');
         const data = await response.json();
-
-        // Add "s" prefix to the gender variable
-        const genderPlural = gender + "s";
-
-        // Access the dress images based on the provided skin tone and gender
-        const dressImages = data[skinTone][genderPlural][Occasion];
-        console.log(data[skinTone][genderPlural])
-        // Return the dress images array
-        return dressImages;
+        console.log(occasion)
+        console.log(data[skinTone]);
+        console.log(data[skinTone][gender]);
+        console.log(data[skinTone][gender][occasion]);
+        return data[skinTone][gender][occasion];
     } catch (error) {
         console.error('Error fetching dress images:', error);
         return [];
@@ -106,20 +103,34 @@ console.log(highestRGBValues);
 const recommendedSkinTone = recommendDressImageFromRGB(highestRGBValues);
 console.log(recommendedSkinTone)
 if (recommendedSkinTone) {
-    // Fetch dress images based on skin tone and gender
-    fetchDressImages(recommendedSkinTone, selectedGender, selectedOccsion)
-        .then(images => {
+    // Fetch dress images based on the recommended skin tone, gender, and occasion
+    fetchDressImagesWithDescriptions(recommendedSkinTone, selectedGender, selectedOccsion)
+        .then(imagesWithDescriptions => {
+            console.log("from create ele",imagesWithDescriptions)
             // Get the advised dress container
             const advisedDressContainer = document.querySelector('.advised-dress div:last-child');
-            // Loop through each dress image path and create <img> elements
-            images.forEach(imagePath => {
-                // Create <img> element
+
+            // Loop through each dress image and description
+            imagesWithDescriptions.forEach(item => {
+                // Create a <div> container for the image and description
+                const divElement = document.createElement('div');
+                divElement.classList.add('advised-image');
+
+                // Create an <img> element for the dress image
                 const imgElement = document.createElement('img');
-                // Set the src attribute to the dress image path
-                imgElement.src = imagePath;
+                imgElement.src = item.image;
                 imgElement.alt = 'Advised Dress';
-                // Append the <img> element to the advised dress container
-                advisedDressContainer.appendChild(imgElement);
+
+                // Create a <p> element for the description
+                const pElement = document.createElement('p');
+                pElement.textContent = item.description;
+
+                // Append the <img> and <p> elements to the <div> container
+                divElement.appendChild(imgElement);
+                divElement.appendChild(pElement);
+
+                // Append the <div> container to the advised dress container
+                advisedDressContainer.appendChild(divElement);
             });
         })
         .catch(error => {
